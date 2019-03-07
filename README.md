@@ -7,7 +7,7 @@ environment on any K8S cluster. They have been verified on
 [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/).
 
 ## Video Instructions
-![](https://youtu.be/cYQpzM-FbVo)
+[YouTube Link](https://youtu.be/cYQpzM-FbVo)
 
 ## Deployment
 
