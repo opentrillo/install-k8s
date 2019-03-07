@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: trillo-repo-pv
+  namespace: trillo
+spec:
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: repo-nfs.trillo.svc.cluster.local
+    path: "/"
+  claimRef:
+    namespace: trillo
+    name: trillo-repo-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: trillo-repo-pvc
+  namespace: trillo
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 100Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: trillo-rt-appdata-pv
+  namespace: trillo
+spec:
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: appdata-nfs.trillo.svc.cluster.local
+    path: "/"
+  claimRef:
+    name: trillo-rt-appdata-pvc
+    namespace: trillo
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: trillo-rt-appdata-pvc
+  namespace: trillo
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 100Gi
