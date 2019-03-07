@@ -8,6 +8,8 @@ environment on any K8S cluster. They have been verified on
 
 ## Deployment
 
+![](https://drive.google.com/uc?id=1FqSKZQqq8pjuYQwdgPGBJe6qvUvXify4)
+
 ### Deployment Requirements
 
 GCP account is required for GKE.
