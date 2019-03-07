@@ -6,6 +6,9 @@ A Set of templates which deploys a fully-functional Trillo RunTime
 environment on any K8S cluster. They have been verified on
 [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/).
 
+## Video Instructions
+![](https://youtu.be/cYQpzM-FbVo)
+
 ## Deployment
 
 ![](https://drive.google.com/uc?id=1FqSKZQqq8pjuYQwdgPGBJe6qvUvXify4)
