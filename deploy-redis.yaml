@@ -21,7 +21,12 @@ spec:
         - image: redis
           name: redis
           command:
-            - redis-server --requirepass tri_redbull --appendonly yes
+            - "redis-server"
+          args:
+            - "--requirepass"
+            - "tri_redbull"
+            - "--appendonly"
+            - "yes"
           ports:
             - containerPort: 6379
               name: redis
