@@ -18,7 +18,7 @@ spec:
         app: mysql
     spec:
       containers:
-        - image: mysql:5.7
+        - image: gcr.io/cloud-marketplace-containers/google/mysql5
           args:
             - "--ignore-db-dir=lost+found"
           name: mysql
