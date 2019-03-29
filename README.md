@@ -64,3 +64,6 @@ GCP account is required for GKE.
 - A public ip address will be assigned to the rt instance where all apps
   are deployed and launched.
 
+## OpenSource Licenses
+
+- https://github.com/opentrillo/install-centos
