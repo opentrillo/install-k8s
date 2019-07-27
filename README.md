@@ -13,7 +13,7 @@ environment on any K8S cluster. They have been verified on
 
 ![](https://drive.google.com/uc?id=1FqSKZQqq8pjuYQwdgPGBJe6qvUvXify4)
 
-### Deployment Requirements
+### Deployment Requirements for GKE
 
 GCP account is required for GKE.
 
@@ -49,19 +49,35 @@ GCP account is required for GKE.
 
 ### Pre Deployment Steps
 
-- Download All files from github.
-- Customize secrets for mysql server.
-- Obtain secrets of trillo runtime dockers.
+- Download All files of this repo from github.
+
+- Request access from info@trillo.io to download private dockerhub images.
+
+- Customize secrets for Redis
+  - using the command "openssl rand -base64 32", replace REDIS_SECRET in both files:
+    - secrets-redis.yaml
+    - deploy-redis.yaml
+
+- Customize secrets for mysql server
+  - using the command "openssl rand -base64 32",replace MYSQL_PASSWORD in mysql-secrets.yaml
+
+- Furnish secrets of your dockerhub account using https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/.
+  - replace DOCKER_CREDENTIALS in secrets-dh.yaml
 
 
 ### Create Deployment
 
-- Create a 3-nodes K8S cluster with 3vCPUs and approx. 8GB (equivalent
-  to the default GKE cluster.
-- Run deploy-trillo.sh to deploy all templates.
+- (Use Console or Command-line) Create a 3-nodes k8s cluster with 3vCPUs and approx. 8GB (equivalent to the default GKE cluster.
+- Connect to the newly create cluster via command-line.
+  - Example:
+    ```shell
+    gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project project-trillort
+    ```
+
+- Run deploy-trillo.sh to deploy the application.
 - The deployment will spin up containers for NFS servers, a MYSQL
   instance and trillo runtime containers.
-- A public ip address will be assigned to the rt instance where all apps
+- A public ip address will be assigned to the trillo-rt service where all apps
   are deployed and launched.
 
 ## OpenSource Licenses

@@ -24,7 +24,7 @@ spec:
             - "redis-server"
           args:
             - "--requirepass"
-            - "tri_redbull"
+            - "REDIS_SECRET"
             - "--appendonly"
             - "yes"
           ports:

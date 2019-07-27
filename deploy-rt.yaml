@@ -17,13 +17,16 @@ spec:
       serviceAccountName: trillo-rt
       containers:
         - name: trillo-rt
-          image: trillo/trillo-rt:1.0.0-BUILD-SNAPSHOT_462
+          image: trillo/trillo-rt:1.0.0-BUILD-SNAPSHOT_491
           imagePullPolicy: IfNotPresent
           env:
             - name: DATA_SERVICE_URL
               value: https://trillo-ds.trillo.svc.cluster.local
-            - name: CONTAINER_ORCHESTRATOR
-              value: GKE
+            - name: REDIS_CREDENTIALS
+              valueFrom:
+                secretKeyRef:
+                  name: redis
+                  key: password
           ports:
             - containerPort: 8020
               name: trillo-rt
@@ -57,8 +60,6 @@ kind: Service
 metadata:
   name: trillo-rt
   namespace: trillo
-#  annotations:
-#    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: <PASTE CERTIFICATE ARN HERE>
 spec:
   selector:
     app: trillo-rt
